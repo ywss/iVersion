@@ -697,6 +697,11 @@ static NSString *const iVersionMacAppStoreURLFormat = @"macappstore://itunes.app
                     
                     uint32_t c = 0;
                     NSString *hex = [value substringWithRange:NSMakeRange(unicode.location + 2, 4)];
+                    
+                    if (!hex) {
+                        break;
+                    }
+                    
                     NSScanner *scanner = [NSScanner scannerWithString:hex];
                     [scanner scanHexInt:&c];
                     
